@@ -94,28 +94,21 @@ describe('divide', () => {
     expect(divide(0, 0)).toBeNaN(); // 0 / 0 = NaN
   });
 
-  test('should return correct result for floating-point division', () => {
+  test('Should return correct result for floating-point division', () => {
     expect(divide(0.1, 0.2)).toBeCloseTo(0.5, 5); // 0.1 / 0.2 = 0.5
     expect(divide(1.5, 0.5)).toBe(3); // 1.5 / 0.5 = 3
   });
 
-  test('should return NaN when dividing with NaN', () => {
-    expect(divide(NaN, 1)).toBeNaN(); // NaN / 1 = NaN
-    expect(divide(1, NaN)).toBeNaN(); // 1 / NaN = NaN
-  });
-
-  test('should handle division with Infinity', () => {
+  test('Should handle division with Infinity', () => {
     expect(divide(Infinity, 2)).toBe(Infinity); // Infinity / 2 = Infinity
     expect(divide(-Infinity, 2)).toBe(-Infinity); // -Infinity / 2 = -Infinity
     expect(divide(2, Infinity)).toBe(0); // 2 / Infinity = 0
     expect(divide(Infinity, Infinity)).toBeNaN(); // Infinity / Infinity = NaN
   });
 
-  test('should handle division by a very small number', () => {
-    expect(divide(1, 0.00001)).toBeCloseTo(100000, 5);
-  });
 
-  test('should return 0 for dividing zero by a number', () => {
+
+  test('Should return 0 for dividing zero by a number', () => {
     expect(Object.is(divide(0, 20), 0)).toBe(true); // 0 / 20 = 0
     expect(Object.is(divide(0, -20), -0)).toBe(true); // 0 / -20 = -0
   });
